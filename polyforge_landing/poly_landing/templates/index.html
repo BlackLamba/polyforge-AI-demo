@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyForge - Интеллектуальная платформа инверсного проектирования полимеров</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Ссылка на css файл -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-atom"></i> PolyForge
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">О проекте</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">Демо</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Команда</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Контакты</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary-custom" href="#demo">Попробовать демо</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главная-секция -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="hero-title">Интеллектуальная платформа инверсного проектирования полимеров</h1>
+                    <p class="hero-subtitle">ИИ-решение для ускорения разработки полимерных материалов. Генерируйте химические формулы с заданными свойствами с помощью нейросетевых моделей и глубокого обучения.</p>
+                    <a href="#demo" class="btn btn-primary-custom">Начать демонстрацию</a>
+                </div>
+                <div class="col-lg-5">
+                    <!-- Анимированная молекула -->
+                    <div class="molecule-animation">
+                        <i class="fas fa-atom" style="font-size: 300px; color: var(--primary-blue);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Как это работает -->
+    <section class="py-5" style="background-color: var(--gray-100);">
+        <div class="container py-5">
+            <h2 class="section-title">Как это работает</h2>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="step-card fade-in">
+                        <div class="step-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h4>1. Ввод параметров</h4>
+                        <p>Опишите желаемые свойства полимера на естественном языке или задайте конкретные параметры: гибкость, термостойкость, биоразлагаемость и др.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="step-card fade-in">
+                        <div class="step-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>2. Обработка ИИ</h4>
+                        <p>Нейросетевая модель трансформера анализирует запрос, генерирует молекулярные структуры и проверяет их химическую реализуемость.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="step-card fade-in">
+                        <div class="step-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4>3. Получение результатов</h4>
+                        <p>Получите готовые формулы полимеров, методы их синтеза и альтернативные варианты с похожими характеристиками.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Демо-секция -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <h2 class="section-title">Демонстрация работы платформы</h2>
+            
+            <div class="row mt-5">
+                <!-- Левая колонка - ввод данных -->
+                <div class="col-lg-6 mb-4">
+                    <div class="input-card">
+                        <h3 class="mb-4">Задайте параметры полимера</h3>
+                        
+                        <div class="mb-4">
+                            <label for="polymerDescription" class="form-label fw-bold">Опишите желаемые свойства:</label>
+                            <textarea class="form-control form-control-custom" id="polymerDescription" rows="5" placeholder="Например: гибкий, термостойкий до 200°C, биоразлагаемый, с низкой плотностью"></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Дополнительные фильтры:</label>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="polymerType" class="form-label">Тип полимера</label>
+                                    <select class="form-select form-control-custom" id="polymerType">
+                                        <option value="any">Любой</option>
+                                        <option value="thermoplastic">Термопласт</option>
+                                        <option value="thermoset">Реактопласт</option>
+                                        <option value="elastomer">Эластомер</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="synthesisMethod" class="form-label">Метод синтеза</label>
+                                    <select class="form-select form-control-custom" id="synthesisMethod">
+                                        <option value="any">Любой</option>
+                                        <option value="polymerization">Полимеризация</option>
+                                        <option value="polycondensation">Поликонденсация</option>
+                                        <option value="additive">Аддитивный</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="costLimit" checked>
+                                <label class="form-check-label" for="costLimit">
+                                    Ограничить стоимость синтеза
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button id="generateBtn" class="btn btn-primary-custom w-100 py-3">
+                            <i class="fas fa-magic me-2"></i> Сгенерировать формулы
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Правая колонка - вывод результатов -->
+                <div class="col-lg-6 mb-4">
+                    <div class="output-card">
+                        <h3 class="mb-4">Результаты генерации</h3>
+                        
+                        <!-- Анимация загрузки -->
+                        <div id="loadingAnimation" class="loading-animation">
+                            <div class="spinner"></div>
+                            <h4>Идет обработка запроса...</h4>
+                            <p>Нейросетевая модель анализирует ваш запрос и генерирует подходящие полимерные структуры</p>
+                        </div>
+                        
+                        <!-- Результаты -->
+                        <div id="resultsContainer" style="display: none;">
+                            <div class="mb-4">
+                                <h5 class="text-success">
+                                    <i class="fas fa-filter me-2"></i> 
+                                    Фильтры химической реализуемости отсортировали для вас следующие формулы:
+                                </h5>
+                            </div>
+    
+                            <!-- Основные формулы (должен появляться результат из ии) -->
+                            <div id="mainFormulas"></div>
+    
+                            <!-- Альтернативные варианты (должен появляться результат из ии) -->
+                            <div class="alternative-section">
+                                <h5 class="alternative-title">
+                                    <i class="fas fa-exchange-alt me-2"></i>
+                                    Альтернативные варианты со схожими характеристиками:
+                                </h5>
+                                <div id="alternativeFormulas"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "О проекте" -->
+    <section id="about" class="py-5" style="background-color: white;">
+        <div class="container py-5">
+            <h2 class="section-title">О проекте</h2>
+            
+            <div class="row mt-5 align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <h3 class="mb-4">Интеллектуальная платформа инверсного проектирования полимеров</h3>
+                    <p class="mb-4">Проект направлен на создание интеллектуальной платформы инверсного проектирования полимеров для 3D-печати. Цель разработки — ускорить и удешевить процесс подбора и синтеза новых полимерных материалов за счёт применения методов искусственного интеллекта и нейросетевого моделирования.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-robot fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h5>Искусственный интеллект</h5>
+                                    <p class="small">Генеративные модели на основе трансформеров</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-language fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h5>NLP-модуль</h5>
+                                    <p class="small">Обработка естественно-языковых запросов</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-database fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h5>База знаний</h5>
+                                    <p class="small">Онтология из научных статей и данных о полимерах</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-filter fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h5>Фильтры реализуемости</h5>
+                                    <p class="small">Проверка синтезируемости в реальных условиях</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="p-4 rounded" style="background-color: var(--light-blue);">
+                        <h4 class="mb-3">Ключевые преимущества</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Сокращение сроков НИОКР</strong> на 30-50%
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Снижение затрат</strong> на лабораторные испытания на 30-40%
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Генерация новых формул</strong> по заданным параметрам изделия
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Интерпретируемость результатов</strong> с объяснением решений модели
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>SaaS-модель</strong> с доступом по подписке
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "Команда" -->
+    <section id="team" class="py-5" style="background-color: var(--gray-100);">
+        <div class="container py-5">
+            <h2 class="section-title">Наша команда</h2>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="team-member-card">
+                        <img src="" alt="Крутов Антон Антонович" class="team-photo">
+                        <h4>Крутов Антон Антонович</h4>
+                        <p class="text-primary fw-bold">Лидер проекта</p>
+                        <p>Специалист в области полимерной химии и машинного обучения</p>
+                        <p class="small">
+                            <i class="fas fa-phone me-2"></i> +7 (915) 987-53-36<br>
+                            <i class="fas fa-envelope me-2"></i> здесь должна быть ваша почта
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="team-member-card">
+                        <img src="" alt="Бычков Евгений Александрович" class="team-photo">
+                        <h4>Бычков Евгений Александрович</h4>
+                        <p class="text-primary fw-bold">Производитель</p>
+                        <p>Эксперт в области аддитивных технологий и 3D-печати</p>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 mb-4">
+                    <div class="team-member-card">
+                        <img src="" alt="Антонов Артём Валерьевич" class="team-photo">
+                        <h4>Антонов Артём Валерьевич</h4>
+                        <p class="text-primary fw-bold">Администратор</p>
+                        <p>Эксперт в управлении проектами и развитии бизнес-моделей</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "Контакты" -->
+    <section id="contact" class="py-5" style="background-color: white;">
+        <div class="container py-5">
+            <h2 class="section-title">Контакты</h2>
+            
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4">
+                    <h3 class="mb-4">Свяжитесь с нами</h3>
+                    <p>Если вы заинтересованы в сотрудничестве, пилотном внедрении или у вас есть вопросы о платформе, напишите нам.</p>
+                    
+                    <div class="mb-4">
+                        <h5><i class="fas fa-university me-2 text-primary"></i> Образовательная организация</h5>
+                        <p>ФГБОУ ВО «Ярославский государственный технический университет»</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5><i class="fas fa-map-marker-alt me-2 text-primary"></i> Регион</h5>
+                        <p>Ярославская область</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5><i class="fas fa-rocket me-2 text-primary"></i> Акселерационная программа</h5>
+                        <p>ПолиТех.Индустрия 5.0</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="p-4 rounded" style="background-color: var(--light-blue);">
+                        <h4 class="mb-4">Отправить сообщение</h4>
+                        
+                        <div class="mb-3">
+                            <label for="contactName" class="form-label">Ваше имя</label>
+                            <input type="text" class="form-control form-control-custom" id="contactName" placeholder="Введите ваше имя">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="contactEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control form-control-custom" id="contactEmail" placeholder="Введите ваш email">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="contactMessage" class="form-label">Сообщение</label>
+                            <textarea class="form-control form-control-custom" id="contactMessage" rows="4" placeholder="Опишите ваш запрос..."></textarea>
+                        </div>
+                        
+                        <button id="sendMessageBtn" class="btn btn-primary-custom w-100">
+                            <i class="fas fa-paper-plane me-2"></i> Отправить сообщение
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h3 class="mb-3">
+                        <i class="fas fa-atom me-2"></i> PolyForge
+                    </h3>
+                    <p>Интеллектуальная платформа инверсного проектирования полимеров для 3D-печати и аддитивного производства.</p>
+                    <div class="mt-4">
+                        <a href="#" class="me-3"><i class="fab fa-telegram fa-2x"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-vk fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-3">Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home">Главная</a></li>
+                        <li class="mb-2"><a href="#about">О проекте</a></li>
+                        <li class="mb-2"><a href="#demo">Демо</a></li>
+                        <li class="mb-2"><a href="#team">Команда</a></li>
+                        <li class="mb-2"><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-3">Технологии</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Искусственный интеллект</li>
+                        <li class="mb-2">Аддитивные технологии</li>
+                        <li class="mb-2">Молекулярный инжиниринг</li>
+                        <li class="mb-2">Нейросетевые модели</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 PolyForge. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Разработано в рамках акселерационной программы "ПолиТех.Индустрия 5.0"</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальные окна для синтеза -->
+    
+    <!-- Модальное окно для формулы 1 -->
+    <div class="modal fade" id="synthesisModal1" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Синтез полимера F-203 (Термоэластомер)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="formula-structure text-center mb-4">C₁₀H₁₂O₂ - [CH₂-CH(C₆H₅)]ₙ</div>
+                    
+                    <h6 class="mb-3">Пошаговый метод синтеза:</h6>
+                    
+                    <div class="synthesis-step">
+                        <strong>Шаг 1: Подготовка мономеров</strong>
+                        <p>Смешать стирол (C₆H₅-CH=CH₂) и акриловую кислоту (CH₂=CH-COOH) в молярном соотношении 9:1.</p>
+                    </div>
+                    
+                    <div class="synthesis-step">
+                        <strong>Шаг 2: Инициирование полимеризации</strong>
+                        <p>Добавить инициатор АИБН (азоизобутиронитрил) в количестве 0.5% от массы мономеров.</p>
+                    </div>
+                    
+                    <div class="synthesis-step">
+                        <strong>Шаг 3: Проведение реакции</strong>
+                        <p>Нагреть смесь до 80°C в инертной атмосфере (азот) в течение 6-8 часов при постоянном перемешивании.</p>
+                    </div>
+                    
+                    <div class="synthesis-step">
+                        <strong>Шаг 4: Очистка продукта</strong>
+                        <p>Осадить полимер в метаноле, отфильтровать и высушить под вакуумом при 60°C в течение 24 часов.</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h6>Необходимые реагенты:</h6>
+                        <ul>
+                            <li>Стирол (99% чистоты)</li>
+                            <li>Акриловая кислота (98% чистоты)</li>
+                            <li>АИБН (инициатор)</li>
+                            <li>Метанол (для осаждения)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <h6>Условия реакции:</h6>
+                        <ul>
+                            <li>Температура: 80°C</li>
+                            <li>Атмосфера: инертная (азот)</li>
+                            <li>Время: 6-8 часов</li>
+                            <li>Выход: ~85%</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary-custom">
+                        <i class="fas fa-download me-2"></i> Скачать протокол синтеза
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальные окна для остальных формул (можно добавить по аналогии) -->
+    
+    <!-- Модальное окно для формулы 2 -->
+    <div class="modal fade" id="synthesisModal2" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Синтез полимера G-455 (Биополимер)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="formula-structure text-center mb-4">C₈H₁₀N₂O₄ - [NH-(CH₂)₅-CO]ₙ</div>
+                    <p>Метод синтеза: поликонденсация адипиновой кислоты и гексаметилендиамина.</p>
+                    <p>Подробный протокол синтеза находится в разработке...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно для формулы 3 -->
+    <div class="modal fade" id="synthesisModal3" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Синтез полимера H-712 (Сополимер)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="formula-structure text-center mb-4">C₁₂H₁₄O₄ - [CH₂-CH(COOH)-CH₂-CH(C₆H₅)]ₙ</div>
+                    <p>Метод синтеза: радикальная сополимеризация акриловой кислоты и стирола.</p>
+                    <p>Подробный протокол синтеза находится в разработке...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно для формулы 4 -->
+    <div class="modal fade" id="synthesisModal4" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Синтез полимера J-089 (Алифатический полиэфир)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="formula-structure text-center mb-4">C₆H₈O₄ - [O-(CH₂)₄-O-CO-(CH₂)₄-CO]ₙ</div>
+                    <p>Метод синтеза: поликонденсация бутандиола и адипиновой кислоты.</p>
+                    <p>Подробный протокол синтеза находится в разработке...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно для формулы 5 -->
+    <div class="modal fade" id="synthesisModal5" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Синтез полимера K-334 (Полилактид)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="formula-structure text-center mb-4">C₃H₄O₂ - [O-CH(CH₃)-CO]ₙ</div>
+                    <p>Метод синтеза: полимеризация лактида с использованием катализатора октоата олова.</p>
+                    <p>Подробный протокол синтеза находится в разработке...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS и Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Наши JavaScript файлы -->
+    <script src="js/script.js"></script>
+    <!-- Данные для демо -->
+    <script src="js/data.js"></script>
+</body>
+</html>
